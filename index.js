@@ -118,7 +118,6 @@ var ScrollableTabView = React.createClass({
       return (
         <ViewPagerAndroid
          style={styles.scrollableContentAndroid}
-         initialPage={this.props.initialPage}
          onPageSelected={this._updateSelectedPage}
          onPageScroll={(e) => {
            const {offset, position} = e.nativeEvent;
@@ -163,7 +162,7 @@ var ScrollableTabView = React.createClass({
   },
 
   _children() {
-    return React.Children.map(this.props.children, (child) => child);
+    return this.props.children;
   },
 
   render() {
