@@ -26,6 +26,7 @@ var ScrollableTabView = React.createClass({
     tabBarPosition: PropTypes.oneOf(['top', 'bottom']),
     initialPage: PropTypes.number,
     onChangeTab: PropTypes.func,
+    onScroll: PropTypes.func,
     renderTabBar: PropTypes.any,
     style: View.propTypes.style,
   },
@@ -35,6 +36,7 @@ var ScrollableTabView = React.createClass({
       tabBarPosition: 'top',
       initialPage: 0,
       onChangeTab: () => {},
+      onScroll: () => {}
     }
   },
 
@@ -147,6 +149,7 @@ var ScrollableTabView = React.createClass({
 
   _updateScrollValue(value) {
     this.state.scrollValue.setValue(value);
+    this.props.onScroll(value);
   },
 
   _handleLayout(e) {
